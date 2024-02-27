@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  timescaledb-de:
+    image: timescale/timescaledb:latest-pg16
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      TIMESCALEDB_TELEMETRY: off
+      POSTGRES_USER: teaching_de
+      POSTGRES_PASSWORD: teaching_de
+      POSTGRES_DB: teaching_de
+    volumes:
+      - postgresdata-de:/var/lib/postgresql/data
+  
+volumes:
+  postgresdata-de: {}

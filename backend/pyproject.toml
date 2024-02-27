@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+dependencies = [
+    "psycopg[binary]",
+    "fastapi"
+    ]
+
+[tool.setuptools.packages.find]
+where = ["."]
