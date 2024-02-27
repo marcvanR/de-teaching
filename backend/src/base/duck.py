@@ -1,13 +1,13 @@
 import datetime
-from dataclasses import dataclass
+from typing import Optional
+from pydantic import BaseModel
 
 
-@dataclass
-class Duck:
+class Duck(BaseModel):
     name: str
     age: int
     address: str
     favorite_pond: str
-    duck_created: datetime.datetime
-    duck_updated: datetime.datetime
-
+    duck_created: Optional[datetime.datetime] = None
+    duck_updated: Optional[datetime.datetime] = None
+    new_field: str

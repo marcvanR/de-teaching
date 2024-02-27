@@ -33,3 +33,14 @@ services:
     depends_on:
       - zoo-local
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672" # Management UI
+      - "5672:5672"   # Default RabbitMQ Port
+
+
+
+
+
+

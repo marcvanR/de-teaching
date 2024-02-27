@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-svc
+  namespace: teaching_ns
+  labels:
+    app: http-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-svc
+  template:
+    metadata:
+      labels:
+        app: http-svc
+    spec:
+      containers:
+      - name: http-svc
+        image: <OUR DOCKER IMAGE>
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /alive
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 0
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 10
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /alive
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 0
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 10

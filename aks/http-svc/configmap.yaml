@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: teaching_ns
+  name: database
+data:
+  # property-like keys; each key maps to a simple value
+  POSTGRES_DB: "teaching_de"
+  POSTGRES_USER: "teaching_de"
+  POSTGRES_PORT: "5432"
+  SVC_PORT: "8080"
