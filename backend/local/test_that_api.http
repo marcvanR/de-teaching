@@ -1,14 +1,14 @@
 ### GET a duck for the given duck id
-GET http://localhost:8000/duck/1
+GET http://localhost:8080/duck/1
 Accept: text/plain
 
 ### post a new duck and get the corresponding ID back
-POST http://localhost:8000/duck
+POST http://localhost:8080/duck
 Content-Type: application/json
 
 {
-"age": 12,
+"age": 18,
 "address": "ducktown 35A",
-"name": "Donald",
+"name": "Donalda",
 "favorite_pond": "Kralingse plas"
 }

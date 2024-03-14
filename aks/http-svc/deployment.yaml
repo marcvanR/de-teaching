@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: http-svc
-  namespace: teaching_ns
+  namespace: teaching-ns
   labels:
     app: http-svc
 spec:
@@ -17,7 +17,10 @@ spec:
     spec:
       containers:
       - name: http-svc
-        image: <OUR DOCKER IMAGE>
+        image: testcrbatto.azurecr.io/teaching-de/http-svc:latest
+        envFrom:
+          - configMapRef:
+              name: http-svc
         ports:
         - containerPort: 8080
         livenessProbe:

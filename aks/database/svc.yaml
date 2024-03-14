@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: database
   labels:
-    run: database
+    app: database
 spec:
   ports:
   - port: 5432
     protocol: TCP
   selector:
-    run: database
+    app: database

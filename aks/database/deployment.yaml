@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: database
-  namespace: teaching_ns
+  namespace: teaching-ns
   labels:
     app: database
 spec:
@@ -20,3 +20,19 @@ spec:
         image: timescale/timescaledb:latest-pg16
         ports:
         - containerPort: 5432
+        envFrom:
+          - configMapRef:
+              name: database
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/conf
+            name: pg-settings
+        args:
+          - "-c"
+          - "hba_file=/var/lib/postgresql/conf/pg_hba.conf"
+      volumes:
+        - name: pg-settings
+          configMap:
+            name: database
+            items:
+              - key: pg_hba.conf
+                path: pg_hba.conf

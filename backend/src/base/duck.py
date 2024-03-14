@@ -10,4 +10,3 @@ class Duck(BaseModel):
     favorite_pond: str
     duck_created: Optional[datetime.datetime] = None
     duck_updated: Optional[datetime.datetime] = None
-    new_field: str

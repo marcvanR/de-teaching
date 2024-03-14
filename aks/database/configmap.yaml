@@ -2,8 +2,25 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: database
-  namespace: teaching_ns
+  namespace: teaching-ns
 data:
   # property-like keys; each key maps to a simple value
   POSTGRES_DB: "teaching_de"
   POSTGRES_USER: "teaching_de"
+  POSTGRES_PASSWORD: "teaching_de"
+  pg_hba.conf: |
+    # TYPE  DATABASE        USER            ADDRESS                 METHOD
+    # "local" is for Unix domain socket connections only
+    local   all             all                                     trust
+    # IPv4 local connections:
+    host    all             all             127.0.0.1/32            trust
+    # IPv6 local connections:
+    host    all             all             ::1/128                 trust
+    # Allow replication connections from localhost, by a user with the
+    # replication privilege.
+    local   replication     all                                     trust
+    host    replication     all             127.0.0.1/32            trust
+    host    replication     all             ::1/128                 trust
+    host    all             all              0.0.0.0/0                       md5
+    host    all             all              ::/0                            md5
+    host all all all scram-sha-256
