@@ -60,7 +60,7 @@ information about the files including size, ownership and modes like being execu
 - `fzf`
     A lot of the commands that are described here work nicely with fzf, an example could be to see which files are
 available in your folder structure and open them in `vim`
-
+- vim, any system that has it installed comes with `vimtutor` which you can run from your terminal. Go through the entire thing to get you started, this will land you in a position where you can move around a bit more easily and you can continue from there on. 
 <img src="./resources/vim_fzf.gif" width="800" alt="vim with fzf"/>
 
 ## Working with kubernetes
