@@ -40,6 +40,7 @@ information about the files including size, ownership and modes like being execu
 - `clear` clear your screen to start fresh (but with all of your context in place)
 - `chmod` change file modes or Access Control Lists 
 - `chown` change owner of the file (if you currently have rights to change that 😉;
+- `pv` place this command somehwere in your piping and let it show how fast it's going. This allows you to see how long you need to wait before some program is done. 
 
 
 ## Networking
